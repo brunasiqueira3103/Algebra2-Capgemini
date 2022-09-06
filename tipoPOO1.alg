@@ -9,16 +9,44 @@ fimregistro
 
 Var
 
-cliente1 : CadastroCliente
+clientes : vetor[1..3] de CadastroCliente
+opcao : caractere
+i : inteiro
+rgPesquisa : caractere
 
 Inicio
 
-escreval("Digite o nome: ")
-leia(cliente1.nome)
-escreval("Digite o rg: ")
-leia(cliente1.rg)
-escreval("Digite a idade: ")
-leia(cliente1.idade)
+repita
+    escreval(" 1- cadastrar: ")
+    escreval(" 2- pesquisar: ")
+    escreval(" 3- sair ")
+    leia(opcao)
+    
+ se opcao = "1" entao
+      para i de 1 ate 3 faca
+        se clientes[i].nome = "" entao
+           escreval("Digite o nome: ")
+              leia(clientes[i].nome)
+           escreval("Digite o rg: ")
+              leia(clientes[i].rg)
+           escreval("Digite a idade: ")
+              leia(clientes[i].idade)
+              interrompa
+           fimse
+      fimpara
+  senao
+      se opcao = "2" entao
+      escreval("Digite o rg: ")
+         leia(rgPesquisa)
+      para i de 1 ate 3 faca
+         se clientes[i].rg = rgPesquisa entao
+         escreval(clientes[i].nome, " encontrado.")
+         interrompa
+      fimse
+      fimpara
+      fimse
+      fimse
+ate opcao = "3"
 
-escreval("O nome do cliente é: ",cliente1.nome, " o rg é: ",cliente1.rg," e a idade é: ",cliente1.idade)
+
 Fimalgoritmo
